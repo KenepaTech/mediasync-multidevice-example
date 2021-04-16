@@ -3,8 +3,8 @@
 ![image](https://i.imgur.com/6VwZWwk.png)
 
 ## Dependencies
-timingsrc - https://github.com/webtiming/timingsrc
-Shared Motion - http://webtiming.github.io/timingsrc/doc/shared_motion.html
+* timingsrc - https://github.com/webtiming/timingsrc
+* Shared Motion - http://webtiming.github.io/timingsrc/doc/shared_motion.html
 
 ## Getting started
 1. Create a MCorp App - http://webtiming.github.io/timingsrc/doc/shared_motion.html#1-create-mcorp-app
