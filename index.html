@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
+    <link rel="shortcut icon" href="favicon.ico" />
     <script
       src="https://webtiming.github.io/timingsrc/lib/timingsrc-v2.js"
       text="javascript"
@@ -10,7 +11,6 @@
       text="javascript"
     ></script>
 
-    <!-- <script text="javascript" src="../lib/timingsrc-v2.js"></script> -->
     <script text="javascript" src="https://mcorp.no/lib/mediasync.js"></script>
     <script type="text/javascript">
       var m, w;
@@ -18,9 +18,9 @@
       var run = function () {
         // timing object
         var to = new TIMINGSRC.TimingObject({ range: [0, 100] });
-        var mcorp_app = MCorp.app("5851167974185142166", { anon: true });
+        var mcorp_app = MCorp.app("YOUR_KEY_HERE", { anon: true });
         mcorp_app.ready.then(function () {
-          to.timingsrc = mcorp_app.motions["shared2"];
+          to.timingsrc = mcorp_app.motions["YOUR_MOTION_HERE"];
         });
 
         // set up button click handlers
@@ -66,29 +66,96 @@
       if (document.readyState === "complete") run();
       else window.onload = run;
     </script>
+    <meta charset="UTF-8" />
+    <title>stream</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css   "
+    />
+    <style>
+      button {
+        width: 30px;
+        height: 30px;
+        border: none;
+        cursor: pointer;
+        outline: none;
+      }
+      button:active {
+        background: lime;
+      }
+      .mediabar {
+        border: 1px solid black;
+        max-width: 720px;
+        background: #efefef;
+      }
+
+      .mediabar * {
+        display: inline;
+      }
+
+      .mediabar .right * {
+        float: right;
+      }
+      .clearfix {
+        overflow: auto;
+      }
+      video {
+        max-width: 720px;
+      }
+    </style>
   </head>
   <body>
-    <h1>MediaSync</h1>
-
-    <div id="demo" style="height: 50px">
-      <p id="buttons">
-        <button id="tostart">Reset</button>
-        <button id="pause">Pause</button>
-        <b><button id="forward">Play</button></b>
-        <button id="skipbackward">Skip 5 Back</button>
-        <button id="skipforward">Skip 5 Ahead</button>
-      </p>
-      <p>
-        <b><span id="position"></span></b>
-      </p>
-    </div>
-    <p>
-      <video id="player1" style="height: 200px" autoplay>
-        <source src="https://mcorp.no/res/bigbuckbunny.m4v" type="video/mp4" />
+    <div id="demo">
+      <video id="player1" autoplay>
+        <source src="movie.mp4" type="video/mp4" />
       </video>
-    </p>
-    <script>
+      <div class="mediabar clearfix">
+        <div id="buttons">
+          <button><i id="tostart" class="fa fa-step-backward"></i></button>
+          <button><i id="forward" class="fa fa-play"></i></button>
+          <button><i id="pause" class="fa fa-pause"></i></button>
+          <button><i id="skipbackward" class="fa fa-backward"></i></button>
+          <button><i id="skipforward" class="fa fa-forward"></i></button>
+        </div>
 
+        <span id="position"></span>
+
+        <div class="right">
+          <button onclick="openFullscreen()">
+            <i class="fa fa-window-maximize"></i>
+          </button>
+          <button class="fa fa-volume-up" onclick="raiseVolume()"></button>
+          <button class="fa fa-volume-down" onclick="lowerVolume()"></button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      var elem = document.getElementById("player1");
+
+      function lowerVolume() {
+        if (elem.volume >= 0.2) {
+          elem.volume -= 0.2;
+        }
+      }
+
+      function raiseVolume() {
+        if (elem.volume !== 1.0) {
+          elem.volume += 0.2;
+        }
+      }
+
+      function openFullscreen() {
+        if (elem.requestFullscreen) {
+          elem.requestFullscreen();
+        } else if (elem.webkitRequestFullscreen) {
+          /* Safari */
+          elem.webkitRequestFullscreen();
+        } else if (elem.msRequestFullscreen) {
+          /* IE11 */
+          elem.msRequestFullscreen();
+        }
+      }
     </script>
   </body>
 </html>
