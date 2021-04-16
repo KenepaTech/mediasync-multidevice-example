@@ -1,4 +1,4 @@
-# Stream ![image](https://i.imgur.com/BxqgOFO.png)
+# Stream
 
 ![image](https://i.imgur.com/6VwZWwk.png)
 
