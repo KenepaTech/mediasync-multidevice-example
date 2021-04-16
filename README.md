@@ -1,5 +1,6 @@
 # Pirate Network
 
+![image](https://i.imgur.com/6VwZWwk.png)
 
 ## Dependencies
 timingsrc - https://github.com/webtiming/timingsrc
