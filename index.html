@@ -18,9 +18,9 @@
       var run = function () {
         // timing object
         var to = new TIMINGSRC.TimingObject({ range: [0, 100] });
-        var mcorp_app = MCorp.app("YOUR_KEY_HERE", { anon: true });
+        var mcorp_app = MCorp.app("YOUR_APP_ID_HERE", { anon: true });
         mcorp_app.ready.then(function () {
-          to.timingsrc = mcorp_app.motions["YOUR_MOTION_HERE"];
+          to.timingsrc = mcorp_app.motions["YOUR_MOTION_NAME_HERE"];
         });
 
         // set up button click handlers
