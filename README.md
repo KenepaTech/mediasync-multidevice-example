@@ -1,4 +1,4 @@
-# Stream
+# MediaSync multi-device example
 
 ![image](https://i.imgur.com/6VwZWwk.png)
 
