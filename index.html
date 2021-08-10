@@ -1,25 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <script
-      src="https://webtiming.github.io/timingsrc/lib/timingsrc-v2.js"
-      text="javascript"
-    ></script>
-    <script
-      src="https://www.mcorp.no/lib/mcorp-2.0.js"
-      text="javascript"
-    ></script>
-
+    <script src="https://webtiming.github.io/timingsrc/lib/timingsrc-v2.js" text="javascript"></script>
+    <script src="https://www.mcorp.no/lib/mcorp-2.0.js" text="javascript"></script>
     <script text="javascript" src="https://mcorp.no/lib/mediasync.js"></script>
     <script type="text/javascript">
-      var m, w;
+      var MCORP_MOTION_NAME = "YOUR_NAMED_MOTION_NAME_HERE";
+      var MCORP_APPID = "YOUR_APPID_HERE";
 
       var run = function () {
         // timing object
         var to = new TIMINGSRC.TimingObject({ range: [0, 100] });
-        var mcorp_app = MCorp.app("YOUR_APP_ID_HERE", { anon: true });
+        var mcorp_app = MCorp.app(MCORP_APPID, { anon: true });
         mcorp_app.ready.then(function () {
-          to.timingsrc = mcorp_app.motions["YOUR_MOTION_NAME_HERE"];
+          to.timingsrc = mcorp_app.motions[MCORP_MOTION_NAME];
         });
 
         // set up button click handlers
@@ -50,9 +44,9 @@
 
         // set up refresh of timingobject position
         to.on("timeupdate", function () {
-          document.getElementById(
-            "position"
-          ).innerHTML = to.query().position.toFixed(2);
+          document.getElementById("position").innerHTML = to
+            .query()
+            .position.toFixed(2);
         });
 
         // set up video sync
@@ -63,11 +57,8 @@
       else window.onload = run;
     </script>
     <meta charset="UTF-8" />
-    <title>stream</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css   "
-    />
+    <title>mediasync</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
     <style>
       button {
         width: 30px;
@@ -103,7 +94,10 @@
   <body>
     <div id="demo">
       <video id="player" autoplay>
-        <source src="https://test-videos.co.uk/vids/bigbuckbunny/mp4/h264/720/Big_Buck_Bunny_720_10s_10MB.mp4" type="video/mp4" />
+        <source
+          src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+          type="video/mp4"
+        />
       </video>
       <div class="mediabar clearfix">
         <div id="buttons">
